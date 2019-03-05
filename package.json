@@ -1,0 +1,34 @@
+{
+  "name": "edged",
+  "version": "1.0.0",
+  "description": "Purge items at the edge of the network",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "standard",
+    "test": "tap test/*.js -b --cov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/michaelnisi/edged"
+  },
+  "engines": {
+    "node": ">= 6"
+  },
+  "homepage": "https://github.com/michaelnisi/edged#readme",
+  "keywords": [
+    "fastly",
+    "reverse",
+    "proxy",
+    "client",
+    "purge"
+  ],
+  "author": "Michael Nisi (https://troubled.pro)",
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^12.0.1",
+    "tap": "^12.5.3"
+  },
+  "dependencies": {
+    "readable-stream": "^3.2.0"
+  }
+}
