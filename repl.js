@@ -57,5 +57,5 @@ ctx.env = env
 ctx.client = client
 
 ctx.action = createPipeline(Edged.createStream(client))
-ctx.purge = createPipeline(Edged.createStream(client, Edged.action.purge))
-ctx.softPurge = createPipeline(Edged.createStream(client, Edged.action.softPurge))
+ctx.purge = createPipeline(Edged.createURLStream(client, Edged.action.purge))
+ctx.softPurge = createPipeline(Edged.createURLStream(client, Edged.action.softPurge))
