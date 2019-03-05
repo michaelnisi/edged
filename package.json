@@ -1,6 +1,6 @@
 {
   "name": "edged",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Purge items at the edge of the network",
   "main": "index.js",
   "scripts": {
