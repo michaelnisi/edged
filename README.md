@@ -55,14 +55,10 @@ By default, Fastly doesn’t require an API token for purging.
 ## Purging URLs
 
 ```js
-cb (er, statusCode, body)
+cb (Error | undefined, Number, String)
 ```
 
-The callback of these methods.
-
-- `Error | undefined` An error if something went wrong.
-- `Number`: The HTTP status code.
-- `String`: The body of the HTTP response.
+The callback of these methods receives an error if something went wrong, the HTTP status code of the response, and its body.
 
 ```js
 client.purgeByURL (uri, cb)
