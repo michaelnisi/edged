@@ -96,7 +96,7 @@ Returns a flexible action stream, to which you write  `{ Edged.action, uri }` an
 Edged.createURLStream (client, Edged.action)
 ```
 
-Returns a concrete stream, where you choose an action up-front. Write URLs, as `String` or `URL` types, to this stream.
+Returns a specialized stream for an action you choose up-front. Write URLs, as `String` or `URL` types, to this stream.
 
 ## Installing
 
