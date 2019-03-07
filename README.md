@@ -87,19 +87,13 @@ Often times you want to purge not just one URL, but many, maybe URLs you receive
 Result objects, readable from these streams, contain an HTTP status code received from Fastly, the URL that was attempted to purge, and the body of the HTTP response parsed as JSON if possible.
 
 ```js
-Edged.action
-```
-
-Here you find actions to write to a stream or to create a stream for.
-
-```js
 Edged.createStream (client)
 ```
 
-Returns a flexible action stream, to which you write  `{ action, uri }` and read result objects.
+Returns a flexible action stream, to which you write  `{ Edged.action, uri }` and read result objects.
 
 ```js
-Edged.createURLStream (client, action)
+Edged.createURLStream (client, Edged.action)
 ```
 
 Returns a concrete stream, where you choose an action up-front. Write URLs, as `String` or `URL` types, to this stream.
