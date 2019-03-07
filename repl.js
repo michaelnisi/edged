@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// repl - access Edged with a REPL
+// repl - walk on the edge
 
 const repl = require('repl')
 const { Edged } = require('./')
