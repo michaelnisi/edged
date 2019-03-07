@@ -34,6 +34,7 @@ function createPipeline (s) {
   pipeline(s, new Writable({
     write (obj, enc, cb) {
       console.log(inspect(obj, { colors: true }))
+      server.displayPrompt()
       cb()
     },
     objectMode: true
