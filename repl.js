@@ -5,6 +5,7 @@
 const repl = require('repl')
 const { Edged } = require('./')
 const { inspect } = require('util')
+const { log, clear, dir } = require('console')
 const { pipeline, Writable } = require('readable-stream')
 
 const server = repl.start({
@@ -33,30 +34,26 @@ const client = createEdged()
 function createPipeline (s) {
   pipeline(s, new Writable({
     write (obj, enc, cb) {
-      console.log(inspect(obj, { colors: true }))
+      dir(obj, { colors: true })
       server.displayPrompt()
       cb()
     },
     objectMode: true
   }), er => {
-    console.log(er || 'ok')
+    log(er || 'ok')
     server.displayPrompt()
   })
 
   return s
 }
 
-function clear () {
-  process.stdout.write('\u001B[2J\u001B[0;0f')
-}
+const { context } = server
 
-const ctx = server.context
+context.Edged = Edged
+context.clear = clear
+context.env = env
+context.client = client
 
-ctx.Edged = Edged
-ctx.clear = clear
-ctx.env = env
-ctx.client = client
-
-ctx.action = createPipeline(Edged.createStream(client))
-ctx.purge = createPipeline(Edged.createURLStream(client, Edged.action.purge))
-ctx.softPurge = createPipeline(Edged.createURLStream(client, Edged.action.softPurge))
+context.action = createPipeline(Edged.createStream(client))
+context.purge = createPipeline(Edged.createURLStream(client, Edged.action.purge))
+context.softPurge = createPipeline(Edged.createURLStream(client, Edged.action.softPurge))
