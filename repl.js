@@ -4,7 +4,6 @@
 
 const repl = require('repl')
 const { Edged } = require('./')
-const { inspect } = require('util')
 const { log, clear, dir } = require('console')
 const { pipeline, Writable } = require('readable-stream')
 
